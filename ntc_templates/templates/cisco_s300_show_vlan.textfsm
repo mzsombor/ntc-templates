@@ -1,0 +1,11 @@
+Value VLAN (\d+)
+Value NAME (\S+)
+Value PORTS (\S*)
+
+Start
+  ^Vlan\s+Name.+Ports\s+ -> Begin
+  ^\s*$$
+
+Begin
+  ^-+
+  ^\s*${VLAN}\s+${NAME}\s+${PORTS} -> Record
